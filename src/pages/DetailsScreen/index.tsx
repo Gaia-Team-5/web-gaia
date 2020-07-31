@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiChevronRight } from 'react-icons/fi';
+
+import api from '../../services/api';
 
 import { Container, Summary, CasesContainer, Cases } from './styles';
 
@@ -9,7 +11,7 @@ import logoImg from '../../assets/logo.svg';
 interface Case {
   id: number;
   category: 'isolated' | 'injured' | 'death risk' | 'other';
-  assistant_report: string;
+  gaia_report: string;
   risk: string;
   location: {
     latitude: number;
@@ -19,8 +21,17 @@ interface Case {
   status: 'pending' | 'ongoing';
 }
 
-const DetailsScreen: React.FC = () => {
-  // const [cases, setCases] = useState<Case[]>();
+const DetailsScreen: React.FC = navigation => {
+  const [emergencyCases, setCases] = useState<Case[]>([]);
+
+  useEffect(() => {
+    api
+      .get('/get-cases')
+      .then(response => {
+        setCases(response.data);
+      })
+      .catch(err => console.log(err));
+  }, [navigation]);
 
   return (
     <Container>
@@ -42,22 +53,20 @@ const DetailsScreen: React.FC = () => {
       <CasesContainer>
         <img src={logoImg} alt="gaia logo" />
         <Cases>
-          <Link to="/case" className="medium">
-            <span>Medium</span>
-            <div className="case-info">
-              <span className="timestamp">08:05:35PM</span>
-              <p>At home</p>
-            </div>
-            <FiChevronRight size={20} />
-          </Link>
-          <Link to="/case" className="urgent">
-            <span>Urgent</span>
-            <div className="case-info">
-              <span className="timestamp">08:07:12</span>
-              <p>In a car roof</p>
-            </div>
-            <FiChevronRight size={20} />
-          </Link>
+          {emergencyCases?.map(emergencyCase => (
+            <Link
+              to="/case"
+              className={emergencyCase.risk}
+              key={emergencyCase.id}
+            >
+              <span>{emergencyCase.risk}</span>
+              <div className="case-info">
+                <span className="timestamp">{emergencyCase.created_at}</span>
+                <p>{emergencyCase.gaia_report}</p>
+              </div>
+              <FiChevronRight size={20} />
+            </Link>
+          ))}
         </Cases>
       </CasesContainer>
     </Container>

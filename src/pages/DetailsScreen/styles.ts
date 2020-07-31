@@ -1,4 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+
+import { shade } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -72,8 +74,16 @@ export const Cases = styled.div`
     align-items: center;
     justify-content: space-around;
 
+    &:hover {
+      background-color: ${shade(0.05, '#eaeaea')};
+    }
+
     > span {
       padding: 8px;
+      width: 80px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.9rem;
     }
 
     &.medium > span {
@@ -90,6 +100,9 @@ export const Cases = styled.div`
 
       .timestamp {
         font-size: 0.8rem;
+        display: block;
+        font-style: italic;
+        margin-bottom: 8px;
       }
     }
 
