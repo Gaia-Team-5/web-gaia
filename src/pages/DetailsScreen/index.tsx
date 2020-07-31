@@ -55,7 +55,7 @@ const DetailsScreen: React.FC = navigation => {
         <Cases>
           {emergencyCases?.map(emergencyCase => (
             <Link
-              to="/case"
+              to={`/case/${emergencyCase.id}`}
               className={emergencyCase.risk}
               key={emergencyCase.id}
             >
