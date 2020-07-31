@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Map, TileLayer, Marker } from 'react-leaflet';
+import L from 'leaflet';
 
 import api from '../../services/api';
 
@@ -11,6 +12,9 @@ import {
   ContainerTitle,
   ContainerCases,
 } from './styles';
+
+import yellowMarkerIcon from '../../assets/marker-yellow.svg';
+import redMarkerIcon from '../../assets/marker-red.svg';
 
 import logoImg from '../../assets/logo-invert.svg';
 
@@ -26,6 +30,26 @@ interface Case {
   created_at: string;
   status: 'pending' | 'ongoing';
 }
+
+const yellowIcon = new L.Icon({
+  iconUrl: yellowMarkerIcon,
+  iconRetinaUrl: yellowMarkerIcon,
+  iconAnchor: [5, 55],
+  iconSize: [25, 25],
+  shadowSize: [68, 95],
+  shadowAnchor: [20, 92],
+  opacity: 0.8,
+});
+
+const redIcon = new L.Icon({
+  iconUrl: redMarkerIcon,
+  iconRetinaUrl: redMarkerIcon,
+  iconAnchor: [5, 55],
+  iconSize: [25, 25],
+  shadowSize: [68, 95],
+  shadowAnchor: [20, 92],
+  opacity: 0.8,
+});
 
 const MainScreen: React.FC = navigation => {
   // const [initialPosition, setInitialPosition] = useState<[number, number]>([
@@ -66,13 +90,16 @@ const MainScreen: React.FC = navigation => {
           />
 
           {emergencyCases?.map(emergencyCase => (
-            <Marker
-              key={emergencyCase.id}
-              position={[
-                emergencyCase.location.latitude,
-                emergencyCase.location.longitude,
-              ]}
-            />
+            <div className={emergencyCase.risk}>
+              <Marker
+                key={emergencyCase.id}
+                position={[
+                  emergencyCase.location.latitude,
+                  emergencyCase.location.longitude,
+                ]}
+                icon={emergencyCase.risk === 'urgent' ? redIcon : yellowIcon}
+              />
+            </div>
           ))}
         </Map>
       </MapContainer>
