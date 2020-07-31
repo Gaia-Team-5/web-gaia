@@ -74,6 +74,7 @@ export const InfoContainer = styled.div`
   .category {
     margin-bottom: 32px;
     color: #888;
+    text-transform: uppercase;
   }
 
   strong {

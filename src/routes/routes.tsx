@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useParams } from 'react-router-dom';
 
 import MainScreen from '../pages/MainScreen';
 import DetailsScreen from '../pages/DetailsScreen';
@@ -10,7 +10,7 @@ const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={MainScreen} />
     <Route path="/dashboard" component={DetailsScreen} />
-    <Route path="/case" component={CaseScreen} />
+    <Route path="/case/:id" component={CaseScreen} />
   </Switch>
 );
 
