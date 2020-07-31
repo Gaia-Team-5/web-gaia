@@ -49,29 +49,117 @@ export const ContainerCases = styled.div`
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    background-color: #f4ede8;
     width: 240px;
     padding: 10px 0;
-    border-radius: 5px;
+    border-radius: 8px;
     margin-top: 15px;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background-color: ${shade(0.2, '#f4ede8')};
-    }
+    box-shadow: 2px 4px 7px 4px rgba(0, 0, 0, 0.27);
 
     span {
       font-family: 'Roboto', sans-serif;
+      font-weight: 500;
       font-size: 18px;
-      color: #000;
     }
 
     strong {
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
-      font-size: 56px;
+      font-size: 65px;
       margin-top: 10px;
-      color: #c14545;
+    }
+  }
+
+  #deathRisk {
+    background-color: #f73e3e;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: ${shade(0.2, '#F73E3E')};
+    }
+
+    span {
+      color: #fff;
+    }
+    strong {
+      color: #fff;
+    }
+  }
+
+  #injured {
+    background-color: #fbf564;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: ${shade(0.2, '#FBF564')};
+    }
+
+    span {
+      color: #010101;
+    }
+    strong {
+      color: #010101;
+    }
+  }
+
+  #isolated {
+    background-color: #f2fcf3;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: ${shade(0.2, '#F2FCF3')};
+    }
+
+    span {
+      color: #24423a;
+    }
+    strong {
+      color: #24423a;
+    }
+  }
+
+  #others {
+    background-color: #828080;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: ${shade(0.2, '#828080')};
+    }
+
+    span {
+      color: #fff;
+    }
+    strong {
+      color: #fff;
+    }
+  }
+`;
+
+export const ContainerStatusSituation = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+
+    span {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    strong {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 65px;
+      margin-top: 10px;
+      color: #fff;
     }
   }
 `;

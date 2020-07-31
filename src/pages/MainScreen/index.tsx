@@ -11,6 +11,7 @@ import {
   Sidebar,
   ContainerTitle,
   ContainerCases,
+  ContainerStatusSituation,
 } from './styles';
 
 import yellowMarkerIcon from '../../assets/marker-yellow.svg';
@@ -72,7 +73,7 @@ const MainScreen: React.FC = navigation => {
       .then(response => {
         setCases(response.data);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err)); //eslint-disable-line
   }, [navigation]);
 
   return (
@@ -109,25 +110,36 @@ const MainScreen: React.FC = navigation => {
         </ContainerTitle>
 
         <ContainerCases>
-          <Link to="/dashboard">
-            <span>Risco de morte</span>
+          <Link id="deathRisk" to="/dashboard">
+            <span>Death Risk</span>
             <strong>37</strong>
           </Link>
 
-          <Link to="/dashboard">
-            <span>Feridos</span>
+          <Link id="injured" to="/dashboard">
+            <span>Injured</span>
             <strong>40</strong>
           </Link>
 
-          <Link to="/dashboard">
-            <span>Isolados</span>
+          <Link id="isolated" to="/dashboard">
+            <span>Isolated</span>
             <strong>240</strong>
           </Link>
 
-          <Link to="/dashboard">
-            <span>Outros casos</span>
+          <Link id="others" to="/dashboard">
+            <span>Others</span>
             <strong>112</strong>
           </Link>
+
+          <ContainerStatusSituation>
+            <div>
+              <strong>25</strong>
+              <span>Pending</span>
+            </div>
+            <div>
+              <strong>12</strong>
+              <span>Ongoing</span>
+            </div>
+          </ContainerStatusSituation>
         </ContainerCases>
       </Sidebar>
     </Container>
