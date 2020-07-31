@@ -15,6 +15,10 @@ export const MapContainer = styled.section`
     width: 100%;
     height: 100vh;
   }
+
+  img {
+    opacity: 0.9;
+  }
 `;
 
 export const Sidebar = styled.section`
