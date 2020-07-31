@@ -27,21 +27,30 @@ export const Sidebar = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
   background: #24423a;
-`;
 
-/* Here comes the logo */
-export const ContainerTitle = styled.div`
-  max-height: 10px;
+  > img {
+    margin-top: 48px;
+
+    @media screen and (max-width: 1368px) {
+      margin-top: 32px;
+    }
+  }
 `;
 
 export const ContainerCases = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
-  place-content: center;
-  margin-top: 10px;
+  align-content: center;
+  justify-content: center;
+  margin: 32px 0;
+
+  @media screen and (max-width: 1368px) {
+    margin: 24px 0;
+  }
 
   a {
     display: flex;
@@ -66,6 +75,10 @@ export const ContainerCases = styled.div`
       font-weight: 500;
       font-size: 65px;
       margin-top: 10px;
+
+      @media screen and (max-width: 1368px) {
+        font-size: 40px;
+      }
     }
   }
 
@@ -145,6 +158,7 @@ export const ContainerStatusSituation = styled.div`
     justify-content: center;
     display: flex;
     flex-direction: column;
+    margin-top: 16px;
     cursor: default;
 
     span {
@@ -157,7 +171,7 @@ export const ContainerStatusSituation = styled.div`
     strong {
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
-      font-size: 65px;
+      font-size: 40px;
       margin-top: 10px;
       color: #fff;
     }

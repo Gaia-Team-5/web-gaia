@@ -9,7 +9,6 @@ import {
   Container,
   MapContainer,
   Sidebar,
-  ContainerTitle,
   ContainerCases,
   ContainerStatusSituation,
 } from './styles';
@@ -105,9 +104,7 @@ const MainScreen: React.FC = navigation => {
       </MapContainer>
 
       <Sidebar>
-        <ContainerTitle>
-          <img src={logoImg} alt="gaia" />
-        </ContainerTitle>
+        <img src={logoImg} alt="gaia" />
 
         <ContainerCases>
           <Link id="deathRisk" to="/dashboard">
