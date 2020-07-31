@@ -2,17 +2,18 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  height: 100vh;
-  align-items: stretch;
 `;
 
 export const MapContainer = styled.section`
   width: 70%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #eaeaea;
   color: #333;
+  overflow: hidden;
+
+  .leaflet-container {
+    width: 100%;
+    height: 100vh;
+  }
 `;
 
 export const Sidebar = styled.section`
