@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Map, TileLayer } from 'react-leaflet';
+import { Map, TileLayer, Marker } from 'react-leaflet';
+
+import api from '../../services/api';
 
 import {
   Container,
@@ -12,19 +14,43 @@ import {
 
 import logoImg from '../../assets/logo-invert.svg';
 
-const MainScreen: React.FC = () => {
-  /* const [initialPosition, setInitialPosition] = useState<[number, number]>([
-    0,
-    0,
-  ]);
+interface Case {
+  id: number;
+  category: 'isolated' | 'injured' | 'death risk' | 'other';
+  gaia_report: string;
+  risk: string;
+  location: {
+    latitude: number;
+    longitude: number;
+  };
+  created_at: string;
+  status: 'pending' | 'ongoing';
+}
+
+const MainScreen: React.FC = navigation => {
+  // const [initialPosition, setInitialPosition] = useState<[number, number]>([
+  //   0,
+  //   0,
+  // ]);
+
+  // useEffect(() => {
+  //   navigator.geolocation.getCurrentPosition(position => {
+  //     const { latitude, longitude } = position.coords;
+
+  //     setInitialPosition([latitude, longitude]);
+  //   });
+  // }, []);
+
+  const [emergencyCases, setCases] = useState<Case[]>([]);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(position => {
-      const { latitude, longitude } = position.coords;
-
-      setInitialPosition([latitude, longitude]);
-    });
-  }, []); */
+    api
+      .get('/get-cases')
+      .then(response => {
+        setCases(response.data);
+      })
+      .catch(err => console.log(err));
+  }, [navigation]);
 
   return (
     <Container>
@@ -38,6 +64,16 @@ const MainScreen: React.FC = () => {
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+
+          {emergencyCases?.map(emergencyCase => (
+            <Marker
+              key={emergencyCase.id}
+              position={[
+                emergencyCase.location.latitude,
+                emergencyCase.location.longitude,
+              ]}
+            />
+          ))}
         </Map>
       </MapContainer>
 
