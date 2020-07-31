@@ -52,10 +52,31 @@ export const InfoContainer = styled.div`
   padding: 32px;
 
   width: 48%;
+
+  h3 {
+    font-weight: bold;
+  }
+
+  .category {
+    margin-bottom: 32px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  > p {
+    margin-bottom: 16px;
+  }
 `;
 
 export const MapContainer = styled.div`
   display: flex;
 
   width: 52%;
+
+  .leaflet-container {
+    width: 100%;
+    height: 100%;
+  }
 `;

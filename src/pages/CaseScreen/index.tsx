@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { Map, TileLayer, Marker } from 'react-leaflet';
+
 import api from '../../services/api';
 
 import {
@@ -58,7 +60,14 @@ const CaseScreen: React.FC = navigation => {
             <p>Rescue team is on its way.</p>
           </InfoContainer>
           <MapContainer>
-            <h1>Mapa</h1>
+            <Map center={[-30.0446599, -51.2107973]} zoom={13}>
+              <TileLayer
+                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+
+              <Marker position={[-30.0446599, -51.2107973]} />
+            </Map>
           </MapContainer>
         </section>
       </CaseContainer>
