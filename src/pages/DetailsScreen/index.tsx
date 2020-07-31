@@ -64,7 +64,19 @@ const DetailsScreen: React.FC = navigation => {
                   <span className="status">{emergencyCase.status}</span>
                   <span className="risk">{emergencyCase.risk}</span>
                 </div>
-                <span className="timestamp">{emergencyCase.created_at}</span>
+                <span className="timestamp">
+                  {new Date(emergencyCase.created_at).toLocaleDateString(
+                    'en-US',
+                    {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'numeric',
+                      day: 'numeric',
+                      hour: 'numeric',
+                      minute: 'numeric',
+                    },
+                  )}
+                </span>
               </div>
               <div className="case-info">
                 <p>{emergencyCase.gaia_report}</p>
