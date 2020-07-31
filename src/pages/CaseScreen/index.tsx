@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 import { Map, TileLayer, Marker } from 'react-leaflet';
+
+import { FiArrowLeft } from 'react-icons/fi';
 
 import api from '../../services/api';
 
@@ -40,6 +42,9 @@ const CaseScreen: React.FC = navigation => {
 
   return (
     <Container>
+      <Link to="/dashboard">
+        <FiArrowLeft color="#333" size={24} />
+      </Link>
       <img src={logoImg} alt="gaia logo" />
       <CaseContainer>
         <header>

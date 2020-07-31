@@ -10,6 +10,13 @@ export const Container = styled.div`
   align-items: center;
 
   padding-top: 40px;
+
+  > a {
+    position: absolute;
+
+    top: 16px;
+    left: 16px;
+  }
 `;
 
 export const CaseContainer = styled.div`
