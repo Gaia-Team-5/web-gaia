@@ -25,7 +25,7 @@ export const Sidebar = styled.section`
   align-items: center;
   justify-content: space-around;
 
-  background: #333d31;
+  background: #24423a;
 `;
 
 /* Here comes the logo */
