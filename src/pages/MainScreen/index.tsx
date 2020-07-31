@@ -20,7 +20,11 @@ const MainScreen: React.FC = () => {
   return (
     <Container>
       <MapContainer>
-        <Map center={[-30.0446599, -51.2107973]} zoom={15}>
+        <Map
+          style={{ height: '100vh' }}
+          center={[-30.0446599, -51.2107973]}
+          zoom={13}
+        >
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
