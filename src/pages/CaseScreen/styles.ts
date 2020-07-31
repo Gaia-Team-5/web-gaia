@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
+  background: #fefefe;
+
   min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+  padding-top: 40px;
 `;
 
 export const CaseContainer = styled.div`
@@ -14,6 +19,8 @@ export const CaseContainer = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  margin-top: 80px;
 
   header {
     background: #24423a;
@@ -59,6 +66,7 @@ export const InfoContainer = styled.div`
 
   .category {
     margin-bottom: 32px;
+    color: #888;
   }
 
   strong {

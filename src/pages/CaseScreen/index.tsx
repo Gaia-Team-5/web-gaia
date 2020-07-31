@@ -4,6 +4,8 @@ import { Map, TileLayer, Marker } from 'react-leaflet';
 
 import api from '../../services/api';
 
+import logoImg from '../../assets/logo.svg';
+
 import {
   Container,
   CaseContainer,
@@ -38,6 +40,7 @@ const CaseScreen: React.FC = navigation => {
 
   return (
     <Container>
+      <img src={logoImg} alt="gaia logo" />
       <CaseContainer>
         <header>
           <span className="risk">urgent</span>
