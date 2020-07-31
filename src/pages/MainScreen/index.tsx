@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Map, TileLayer } from 'react-leaflet';
 
-import { Container, MapContainer, Sidebar } from './styles';
+import {
+  Container,
+  MapContainer,
+  Sidebar,
+  ContainerTitle,
+  ContainerCases,
+} from './styles';
+
+import logoImg from '../../assets/logo-invertida.svg';
 
 const MainScreen: React.FC = () => {
   /* const [initialPosition, setInitialPosition] = useState<[number, number]>([
@@ -33,11 +42,31 @@ const MainScreen: React.FC = () => {
       </MapContainer>
 
       <Sidebar>
-        <h1>GaIA</h1>
+        <ContainerTitle>
+          <img src={logoImg} alt="gaia" />
+        </ContainerTitle>
 
-        <div>
-          <h2>Barra </h2>
-        </div>
+        <ContainerCases>
+          <Link to="/f">
+            <span>Risco de morte</span>
+            <strong>37</strong>
+          </Link>
+
+          <Link to="/s">
+            <span>Feridos</span>
+            <strong>40</strong>
+          </Link>
+
+          <Link to="/v">
+            <span>Isolados</span>
+            <strong>240</strong>
+          </Link>
+
+          <Link to="/a">
+            <span>Outros casos</span>
+            <strong>112</strong>
+          </Link>
+        </ContainerCases>
       </Sidebar>
     </Container>
   );
