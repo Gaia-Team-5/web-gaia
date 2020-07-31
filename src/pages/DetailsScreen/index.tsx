@@ -42,11 +42,11 @@ const DetailsScreen: React.FC = navigation => {
         <section>
           <div>
             <span>28</span>
-            <h2>pending</h2>
+            <strong>pending</strong>
           </div>
           <div>
             <span>9</span>
-            <h2>ongoing</h2>
+            <strong>ongoing</strong>
           </div>
         </section>
       </Summary>
@@ -56,18 +56,32 @@ const DetailsScreen: React.FC = navigation => {
           {emergencyCases?.map(emergencyCase => (
             <Link
               to={`/case/${emergencyCase.id}`}
-              className={emergencyCase.risk}
+              className={`${emergencyCase.risk} ${emergencyCase.status}`}
               key={emergencyCase.id}
             >
               <div className="case-status">
-                <span className="status">{emergencyCase.status}</span>
-                <span className="risk">{emergencyCase.risk}</span>
+                <div className="case-tags">
+                  <span className="status">{emergencyCase.status}</span>
+                  <span className="risk">{emergencyCase.risk}</span>
+                </div>
+                <span className="timestamp">
+                  {new Date(emergencyCase.created_at).toLocaleDateString(
+                    'en-US',
+                    {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'numeric',
+                      day: 'numeric',
+                      hour: 'numeric',
+                      minute: 'numeric',
+                    },
+                  )}
+                </span>
               </div>
               <div className="case-info">
-                <span className="timestamp">{emergencyCase.created_at}</span>
                 <p>{emergencyCase.gaia_report}</p>
+                <FiChevronRight size={20} />
               </div>
-              <FiChevronRight size={20} />
             </Link>
           ))}
         </Cases>

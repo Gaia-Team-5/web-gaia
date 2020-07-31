@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Summary = styled.div`
-  background: #2e2e2e;
+  background: #24423a;
   width: 20%;
   height: 100vh;
   position: fixed;
@@ -21,7 +21,7 @@ export const Summary = styled.div`
   left: 0;
   display: flex;
   flex-direction: column;
-  color: #fefefe;
+  color: #fff;
 
   > section {
     width: 100%;
@@ -30,11 +30,21 @@ export const Summary = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
     div {
       text-align: center;
-      margin-bottom: 40px;
+      font-weight: bold;
+
+      span {
+        font-size: 56px;
+      }
+
+      strong {
+        display: block;
+        font-weight: bold;
+        font-size: 24px;
+      }
     }
   }
 `;
@@ -66,12 +76,13 @@ export const Cases = styled.div`
     text-decoration: none;
     transition: transform 0.2s;
     color: #444;
+    padding-bottom: 16px;
 
     margin-bottom: 16px;
 
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
 
     &:hover {
       background-color: ${shade(0.05, '#eaeaea')};
@@ -79,21 +90,39 @@ export const Cases = styled.div`
 
     .case-status {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
 
-      .status {
-        width: 60px;
-        font-size: 0.75rem;
-        color: #999;
-        padding: 4px 8px;
-        background: #333;
+      .case-tags {
+        display: flex;
+        flex-direction: column;
+
+        .status {
+          width: 60px;
+          font-size: 0.75rem;
+          color: #fff;
+          padding: 8px;
+          background: #363636;
+          font-weight: bold;
+          border-top-right-radius: 16px;
+        }
+
+        .risk {
+          padding: 8px;
+          width: 68px;
+          font-weight: bold;
+          font-size: 0.9rem;
+          border-top-right-radius: 8px;
+          border-bottom-left-radius: 8px;
+        }
       }
 
-      .risk {
-        padding: 8px;
-        width: 68px;
-        font-weight: bold;
-        font-size: 0.9rem;
+      .timestamp {
+        font-size: 0.8rem;
+        display: block;
+        font-style: italic;
+        flex: 1;
+        padding-top: 24px;
+        text-align: center;
       }
     }
 
@@ -101,8 +130,11 @@ export const Cases = styled.div`
       background: orange;
     }
     &.urgent .risk {
-      background: #c14545;
+      background: #f83f3f;
       color: #fff;
+    }
+    &.ongoing .case-status .status {
+      background: #6bbd5f;
     }
 
     .case-info {
@@ -110,16 +142,13 @@ export const Cases = styled.div`
       padding: 24px 0;
       flex: 1;
 
-      .timestamp {
-        font-size: 0.8rem;
-        display: block;
-        font-style: italic;
-        margin-bottom: 8px;
-      }
+      display: flex;
+      justify-content: space-around;
     }
 
     svg {
       margin: 0 16px;
+      margin-top: -40px;
 
       display: flex;
       align-items: center;
