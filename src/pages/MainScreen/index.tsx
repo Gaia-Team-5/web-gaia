@@ -10,7 +10,7 @@ import {
   ContainerCases,
 } from './styles';
 
-import logoImg from '../../assets/logo-invertida.svg';
+import logoImg from '../../assets/logo-invert.svg';
 
 const MainScreen: React.FC = () => {
   /* const [initialPosition, setInitialPosition] = useState<[number, number]>([

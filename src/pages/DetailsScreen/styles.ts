@@ -6,25 +6,42 @@ export const Container = styled.div`
   min-height: 100vh;
   align-items: stretch;
   justify-content: center;
+
+  position: relative;
 `;
 
 export const Summary = styled.div`
-  background: #24423a;
+  background: #2e2e2e;
   width: 20%;
   height: 100vh;
   position: fixed;
+  padding: 16px;
   left: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   color: #fefefe;
+
+  > section {
+    width: 100%;
+    margin-top: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    div {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  }
 `;
 
 export const CasesContainer = styled.div`
   background: #fefefe;
   width: 80%;
   margin-left: 20%;
-  padding-top: 120px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,6 +50,7 @@ export const CasesContainer = styled.div`
 
 export const Cases = styled.div`
   width: 720px;
+  margin-top: 80px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -48,5 +66,7 @@ export const Cases = styled.div`
     transition: transform 0.2s;
 
     margin-bottom: 16px;
+
+    display: flex;
   }
 `;
