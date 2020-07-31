@@ -38,7 +38,6 @@ const yellowIcon = new L.Icon({
   iconSize: [25, 25],
   shadowSize: [68, 95],
   shadowAnchor: [20, 92],
-  opacity: 0.8,
 });
 
 const redIcon = new L.Icon({
@@ -82,7 +81,7 @@ const MainScreen: React.FC = navigation => {
         <Map
           style={{ height: '100vh' }}
           center={[-30.0446599, -51.2107973]}
-          zoom={13}
+          zoom={15}
         >
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
