@@ -59,11 +59,10 @@ export const Cases = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  a {
+  > a {
     background: #eaeaea;
     border-radius: 5px;
     flex-basis: 48%;
-    padding: 24px 0;
     text-decoration: none;
     transition: transform 0.2s;
     color: #444;
@@ -71,31 +70,44 @@ export const Cases = styled.div`
     margin-bottom: 16px;
 
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
 
     &:hover {
       background-color: ${shade(0.05, '#eaeaea')};
     }
 
-    > span {
-      padding: 8px;
-      width: 80px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 0.9rem;
+    .case-status {
+      display: flex;
+      flex-direction: column;
+
+      .status {
+        width: 60px;
+        font-size: 0.75rem;
+        color: #999;
+        padding: 4px 8px;
+        background: #333;
+      }
+
+      .risk {
+        padding: 8px;
+        width: 68px;
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
     }
 
-    &.medium > span {
+    &.medium .risk {
       background: orange;
     }
-    &.urgent > span {
+    &.urgent .risk {
       background: #c14545;
       color: #fff;
     }
 
     .case-info {
       margin-left: 16px;
+      padding: 24px 0;
       flex: 1;
 
       .timestamp {
@@ -107,7 +119,12 @@ export const Cases = styled.div`
     }
 
     svg {
-      margin-right: 16px;
+      margin: 0 16px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
     }
   }
 `;
