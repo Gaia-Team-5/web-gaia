@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Map, TileLayer, Marker } from 'react-leaflet';
+import L from 'leaflet';
 
 import { FiArrowLeft } from 'react-icons/fi';
 
@@ -8,12 +9,23 @@ import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 
+import redMarker from '../../assets/case-pin.svg';
+
 import {
   Container,
   CaseContainer,
   InfoContainer,
   MapContainer,
 } from './styles';
+
+const redPin = new L.Icon({
+  iconUrl: redMarker,
+  iconRetinaUrl: redMarker,
+  iconAnchor: [5, 55],
+  iconSize: [25, 25],
+  shadowSize: [68, 95],
+  shadowAnchor: [20, 92],
+});
 
 interface Case {
   id: number;
@@ -28,6 +40,7 @@ interface Case {
   };
   created_at: string;
   status: 'pending' | 'ongoing';
+  action_taken: string;
 }
 
 const CaseScreen: React.FC = navigation => {
@@ -52,7 +65,7 @@ const CaseScreen: React.FC = navigation => {
         </Link>
         <img src={logoImg} alt="gaia logo" />
         <CaseContainer>
-          <header>
+          <header className={`${theCase.risk} ${theCase.status}`}>
             <span className="risk">{theCase.risk}</span>
             <span className="status">{theCase.status}</span>
           </header>
@@ -62,13 +75,25 @@ const CaseScreen: React.FC = navigation => {
               <span className="category">{theCase.category.title}</span>
 
               <strong>Protocol generated at:</strong>
-              <p>{theCase.created_at}</p>
+              <p>
+                {new Date(theCase.created_at).toLocaleDateString('en-US', {
+                  weekday: 'long',
+                  year: 'numeric',
+                  month: 'numeric',
+                  day: 'numeric',
+                  hour: 'numeric',
+                  minute: 'numeric',
+                })}
+              </p>
 
               <strong>gaia Assistant report:</strong>
               <p>{theCase.gaia_report}</p>
 
               <strong>Status:</strong>
-              <p>{theCase.status}</p>
+              <p className="case-status">{theCase.status}</p>
+
+              <strong>Performed actions:</strong>
+              <p>{theCase.action_taken}</p>
             </InfoContainer>
             <MapContainer>
               <Map center={[-30.0446599, -51.2107973]} zoom={13}>
@@ -82,6 +107,7 @@ const CaseScreen: React.FC = navigation => {
                     theCase.location.latitude,
                     theCase.location.longitude,
                   ]}
+                  icon={redPin}
                 />
               </Map>
             </MapContainer>

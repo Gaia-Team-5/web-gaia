@@ -71,7 +71,8 @@ export const Cases = styled.div`
 
   > a {
     background: #eaeaea;
-    border-radius: 5px;
+    border: 1px solid #dadada;
+    border-radius: 8px;
     flex-basis: 48%;
     text-decoration: none;
     transition: transform 0.2s;
@@ -120,9 +121,12 @@ export const Cases = styled.div`
         font-size: 0.8rem;
         display: block;
         font-style: italic;
+        font-weight: bold;
         flex: 1;
         padding-top: 24px;
-        text-align: center;
+        margin-right: 20px;
+        display: block;
+        text-align: right;
       }
     }
 

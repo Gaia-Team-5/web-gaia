@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: #fefefe;
+  background: #f2fcf3;
 
   min-height: 100vh;
 
@@ -24,10 +24,15 @@ export const CaseContainer = styled.div`
   background: #eaeaea;
   color: #333;
 
+  border-radius: 8px;
+  overflow: hidden;
+
   display: flex;
   flex-direction: column;
 
   margin-top: 80px;
+
+  box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.2);
 
   header {
     background: #24423a;
@@ -36,9 +41,15 @@ export const CaseContainer = styled.div`
     display: flex;
     justify-content: space-between;
 
-    .risk {
-      background: #c14545;
+    &.urgent .risk {
+      background: #f83f3f;
+    }
+    &.medium .risk {
+      background: #ffa500;
+      color: #333;
+    }
 
+    .risk {
       padding: 16px;
 
       margin-left: 32px;
@@ -83,6 +94,10 @@ export const InfoContainer = styled.div`
 
   > p {
     margin-bottom: 16px;
+  }
+
+  p.case-status {
+    text-transform: capitalize;
   }
 `;
 
