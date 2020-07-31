@@ -21,17 +21,16 @@ export const Sidebar = styled.section`
   position: relative;
   width: 30%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 
-  background: #24423a;
+  background: #333d31;
 `;
 
 /* Here comes the logo */
 export const ContainerTitle = styled.div`
   max-height: 10px;
-  position: absolute;
-  top: 30px;
 `;
 
 export const ContainerCases = styled.div`
@@ -66,7 +65,7 @@ export const ContainerCases = styled.div`
     strong {
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
-      font-size: 68px;
+      font-size: 56px;
       margin-top: 10px;
       color: #c14545;
     }

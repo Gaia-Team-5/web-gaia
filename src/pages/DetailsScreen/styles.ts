@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -61,12 +61,40 @@ export const Cases = styled.div`
     background: #eaeaea;
     border-radius: 5px;
     flex-basis: 48%;
-    padding: 24px;
+    padding: 24px 0;
     text-decoration: none;
     transition: transform 0.2s;
+    color: #444;
 
     margin-bottom: 16px;
 
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    > span {
+      padding: 8px;
+    }
+
+    &.medium > span {
+      background: orange;
+    }
+    &.urgent > span {
+      background: #c14545;
+      color: #fff;
+    }
+
+    .case-info {
+      margin-left: 16px;
+      flex: 1;
+
+      .timestamp {
+        font-size: 0.8rem;
+      }
+    }
+
+    svg {
+      margin-right: 16px;
+    }
   }
 `;

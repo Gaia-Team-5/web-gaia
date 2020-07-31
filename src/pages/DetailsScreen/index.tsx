@@ -25,7 +25,9 @@ const DetailsScreen: React.FC = () => {
   return (
     <Container>
       <Summary>
-        <FiArrowLeft color="#eaeaea" size={24} />
+        <Link to="/">
+          <FiArrowLeft color="#eaeaea" size={24} />
+        </Link>
         <section>
           <div>
             <span>28</span>
@@ -40,11 +42,19 @@ const DetailsScreen: React.FC = () => {
       <CasesContainer>
         <img src={logoImg} alt="gaia logo" />
         <Cases>
-          <Link to="/case">
-            <span>Urgent</span>
+          <Link to="/case" className="medium">
+            <span>Medium</span>
             <div className="case-info">
               <span className="timestamp">08:05:35PM</span>
               <p>At home</p>
+            </div>
+            <FiChevronRight size={20} />
+          </Link>
+          <Link to="/case" className="urgent">
+            <span>Urgent</span>
+            <div className="case-info">
+              <span className="timestamp">08:07:12</span>
+              <p>In a car roof</p>
             </div>
             <FiChevronRight size={20} />
           </Link>
