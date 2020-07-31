@@ -59,7 +59,10 @@ const DetailsScreen: React.FC = navigation => {
               className={emergencyCase.risk}
               key={emergencyCase.id}
             >
-              <span>{emergencyCase.risk}</span>
+              <div className="case-status">
+                <span className="status">{emergencyCase.status}</span>
+                <span className="risk">{emergencyCase.risk}</span>
+              </div>
               <div className="case-info">
                 <span className="timestamp">{emergencyCase.created_at}</span>
                 <p>{emergencyCase.gaia_report}</p>
