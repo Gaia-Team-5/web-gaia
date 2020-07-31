@@ -10,7 +10,7 @@ import {
   ContainerCases,
 } from './styles';
 
-import logoImg from '../../assets/logo-invertida.svg';
+import logoImg from '../../assets/logo-invert.svg';
 
 const MainScreen: React.FC = () => {
   /* const [initialPosition, setInitialPosition] = useState<[number, number]>([
@@ -47,22 +47,22 @@ const MainScreen: React.FC = () => {
         </ContainerTitle>
 
         <ContainerCases>
-          <Link to="/f">
+          <Link to="/dashboard">
             <span>Risco de morte</span>
             <strong>37</strong>
           </Link>
 
-          <Link to="/s">
+          <Link to="/dashboard">
             <span>Feridos</span>
             <strong>40</strong>
           </Link>
 
-          <Link to="/v">
+          <Link to="/dashboard">
             <span>Isolados</span>
             <strong>240</strong>
           </Link>
 
-          <Link to="/a">
+          <Link to="/dashboard">
             <span>Outros casos</span>
             <strong>112</strong>
           </Link>
