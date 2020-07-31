@@ -17,7 +17,9 @@ import {
 
 interface Case {
   id: number;
-  category: 'isolated' | 'injured' | 'death risk' | 'other';
+  category: {
+    title: 'isolated' | 'injured' | 'death risk' | 'other';
+  };
   gaia_report: string;
   risk: string;
   location: {
@@ -40,6 +42,8 @@ const CaseScreen: React.FC = navigation => {
       .catch(err => console.log(err));
   }, [navigation]);
 
+  const theCase = emergencyCases?.find(item => item.id === 1);
+
   return (
     <Container>
       <Link to="/dashboard">
@@ -48,24 +52,22 @@ const CaseScreen: React.FC = navigation => {
       <img src={logoImg} alt="gaia logo" />
       <CaseContainer>
         <header>
-          <span className="risk">urgent</span>
-          <span className="status">ongoing</span>
+          <span className="risk">{theCase?.risk}</span>
+          <span className="status">{theCase?.status}</span>
         </header>
         <section>
           <InfoContainer>
-            <h3>Case #1</h3>
-            <span className="category">ISOLATED PERSON</span>
+            <h3>Case #{theCase?.id}</h3>
+            <span className="category">{theCase?.category.title}</span>
 
             <strong>Protocol generated at:</strong>
-            <p>14:17:05 - 31/07/20</p>
+            <p>{theCase?.created_at}</p>
 
             <strong>gaia Assistant report:</strong>
-            <p>
-              Family isolated at house, can’t get out. Risk of water getting in.
-            </p>
+            <p>{theCase?.gaia_report}</p>
 
             <strong>Status:</strong>
-            <p>Rescue team is on its way.</p>
+            <p>{theCase?.status}</p>
           </InfoContainer>
           <MapContainer>
             <Map center={[-30.0446599, -51.2107973]} zoom={13}>
@@ -74,7 +76,7 @@ const CaseScreen: React.FC = navigation => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
 
-              <Marker position={[-30.0446599, -51.2107973]} />
+              <Marker position={[0, 0]} />
             </Map>
           </MapContainer>
         </section>
