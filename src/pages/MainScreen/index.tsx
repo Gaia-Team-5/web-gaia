@@ -109,31 +109,31 @@ const MainScreen: React.FC = navigation => {
         <ContainerCases>
           <Link id="deathRisk" to="/dashboard">
             <span>Death Risk</span>
-            <strong>37</strong>
+            <strong>8</strong>
           </Link>
 
           <Link id="injured" to="/dashboard">
             <span>Injured</span>
-            <strong>40</strong>
+            <strong>23</strong>
           </Link>
 
           <Link id="isolated" to="/dashboard">
             <span>Isolated</span>
-            <strong>240</strong>
+            <strong>11</strong>
           </Link>
 
           <Link id="others" to="/dashboard">
             <span>Others</span>
-            <strong>112</strong>
+            <strong>5</strong>
           </Link>
 
           <ContainerStatusSituation>
             <div>
-              <strong>25</strong>
+              <strong>12</strong>
               <span>Pending</span>
             </div>
             <div>
-              <strong>12</strong>
+              <strong>35</strong>
               <span>Ongoing</span>
             </div>
           </ContainerStatusSituation>
