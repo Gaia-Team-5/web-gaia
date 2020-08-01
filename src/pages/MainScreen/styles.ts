@@ -73,8 +73,8 @@ export const ContainerCases = styled.div`
     strong {
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
-      font-size: 65px;
-      margin-top: 10px;
+      font-size: 56px;
+      margin-top: 8px;
 
       @media screen and (max-width: 1368px) {
         font-size: 40px;

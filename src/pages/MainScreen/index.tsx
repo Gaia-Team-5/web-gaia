@@ -126,12 +126,12 @@ const MainScreen: React.FC = navigation => {
 
           <Link id="injured" to="/dashboard">
             <span>Injured</span>
-            <strong>2</strong>
+            <strong>3</strong>
           </Link>
 
           <Link id="isolated" to="/dashboard">
             <span>Isolated</span>
-            <strong>4</strong>
+            <strong>5</strong>
           </Link>
 
           <Link id="others" to="/dashboard">
