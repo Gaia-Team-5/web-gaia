@@ -75,13 +75,25 @@ const MainScreen: React.FC = navigation => {
       .catch(err => console.log(err)); //eslint-disable-line
   }, [navigation]);
 
+  const pendingCases = [];
+  const ongoingCases = [];
+
+  emergencyCases.filter(situation =>
+    situation.status === 'ongoing'
+      ? ongoingCases.push(situation)
+      : pendingCases.push(situation),
+  );
+
+  const pendingNumber = pendingCases.length;
+  const ongoingNumber = ongoingCases.length;
+
   return (
     <Container>
       <MapContainer>
         <Map
           style={{ height: '100vh' }}
           center={[-30.0446599, -51.2107973]}
-          zoom={14}
+          zoom={13}
         >
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -109,31 +121,31 @@ const MainScreen: React.FC = navigation => {
         <ContainerCases>
           <Link id="deathRisk" to="/dashboard">
             <span>Death Risk</span>
-            <strong>8</strong>
+            <strong>1</strong>
           </Link>
 
           <Link id="injured" to="/dashboard">
             <span>Injured</span>
-            <strong>23</strong>
+            <strong>2</strong>
           </Link>
 
           <Link id="isolated" to="/dashboard">
             <span>Isolated</span>
-            <strong>11</strong>
+            <strong>4</strong>
           </Link>
 
           <Link id="others" to="/dashboard">
             <span>Others</span>
-            <strong>5</strong>
+            <strong>1</strong>
           </Link>
 
           <ContainerStatusSituation>
             <div>
-              <strong>12</strong>
+              <strong>{pendingNumber}</strong>
               <span>Pending</span>
             </div>
             <div>
-              <strong>35</strong>
+              <strong>{ongoingNumber}</strong>
               <span>Ongoing</span>
             </div>
           </ContainerStatusSituation>

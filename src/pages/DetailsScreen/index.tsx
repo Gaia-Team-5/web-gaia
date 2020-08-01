@@ -33,6 +33,18 @@ const DetailsScreen: React.FC = navigation => {
       .catch(err => console.log(err));
   }, [navigation]);
 
+  const pendingCases = [];
+  const ongoingCases = [];
+
+  emergencyCases.filter(situation =>
+    situation.status === 'ongoing'
+      ? ongoingCases.push(situation)
+      : pendingCases.push(situation),
+  );
+
+  const pendingNumber = pendingCases.length;
+  const ongoingNumber = ongoingCases.length;
+
   return (
     <Container>
       <Summary>
@@ -41,11 +53,11 @@ const DetailsScreen: React.FC = navigation => {
         </Link>
         <section>
           <div>
-            <span>28</span>
+            <span>{pendingNumber}</span>
             <strong>pending</strong>
           </div>
           <div>
-            <span>9</span>
+            <span>{ongoingNumber}</span>
             <strong>ongoing</strong>
           </div>
         </section>

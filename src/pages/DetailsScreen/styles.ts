@@ -50,7 +50,7 @@ export const Summary = styled.div`
 `;
 
 export const CasesContainer = styled.div`
-  background: #fefefe;
+  background: #f2fcf3;
   width: 80%;
   margin-left: 20%;
   padding-top: 40px;
